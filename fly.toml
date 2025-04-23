@@ -1,0 +1,15 @@
+# fly.toml
+app            = "birthday-bot-small-star-4950"
+primary_region = "otp"            # Bucharest
+
+[build]        # (пустой — берётся Dockerfile или Nixpacks)
+
+# Единственный процесс — Telegram-бот
+[processes]
+bot = "node bot.js"
+
+# Настройки VM (хватает минималки: 256–512 МБ, 1 shared CPU)
+[[vm]]
+  memory   = "256mb"   # можно 512mb, если нужно
+  cpu_kind = "shared"
+  cpus     = 1
